@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>JFM Contact</title>
+<div data-role="header">
+</div>
+<meta name="viewport" 
+      content="width=device-width, initial-scale=1">	
+<link rel="stylesheet" 
+      href="css/jquery.mobile.css" />
+<script type="text/javascript" 
+        src="js/jquery.js">
+</script>
+<script type="text/javascript" 
+        src="js/jquery.mobile.js">
+</script>
+<script type="text/javascript" src="js/notekeeper.js"></script>
+    <style>
+       #map {
+        height: 400px;
+        width: 100%;
+       }
+    </style>
+</head>
+<body>
+
+	<div data-role="page">
+		<div data-role="header"   id="subpage" data-add-back-btn="true">
+			<h1>Find Us</h1>
+		</div>
+    <h3>My Google Maps Demo</h3>
+    <div id="map"></div>
+<div role="main" class="ui-content">
+
+ 
+</div>
+
+	<div data-role="footer" class="footer-docs">
+		<h5>Address: 148 Eastlakes Street Carrara QLD 4211 </h5>
+	</div>
+	</div>
+    <script>
+      function initMap() {
+        var rlf = {lat: -28.040076, lng: 153.354204};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: rlf
+        });
+        var marker = new google.maps.Marker({
+          position: rlf,
+          map: map
+        });
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA1atyhVChQRNAsfZYYDsiCOyD9wh0_Kjg&callback=initMap">
+    </script>
+</body>
+</html>

@@ -1,0 +1,192 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1  target-densitydpi=medium-dpi">
+<title>RenewedLife</title>
+<link rel="stylesheet" 
+      href="css/jquery.mobile.css" />
+<link rel="stylesheet" 
+      href="css/style.css" />
+<link rel="stylesheet" href="themes/Notekeeper.min.css" />
+<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+<link href='https://fonts.googleapis.com/css?family=Amethysta' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Caesar+Dressing' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+
+<div data-role="page" id="home" data-title="Home" class="content">
+<div id="toggle"> </div> 
+<div class="menu closed">
+  <ul>
+    <li><a href="contact.html">Contact</a></li>
+      <p></p>
+    <li><a href="#location">Map</a></li>
+      <p></p>
+    <li><a href="#rss">RSS</a></li>
+      <p></p>
+    <li><a href="#noteKeeper">NoteKeeper</a></li>
+      <p></p>
+    <li><a href="youtubechannel.html">BethelTVChannel</a></li>
+  </ul>
+</div>
+
+  <div class="content">
+    <div class="text">
+<img id="banner" src="img/logo.png" width="500px">
+ <p><script src="https://static6-a.akamaihd.net/votd/votd.write.callback.js"></script>
+<script src="https://www.biblegateway.com/votd/get/?format=json&version=NIV&callback=BG.votdWriteCallback"></script>
+<!-- alternative for no javascript -->
+</p>
+<p>&nbsp;</p>
+<hr />
+</div>
+ </div>
+<div data-role="footer" data-position="fixed">
+    <h4>RLF 2017</h4>
+</div>
+
+</div> 
+ 
+	<div data-role="page" id="noteKeeper" data-title="NoteKeeper"    class="content">
+		<div data-role="header" data-add-back-btn="true">
+			<h1>Notekeeper</h1>
+		</div>
+
+		<div role="main" class="ui-content">
+		<form>
+			<div class="ui-field-contain">
+				<input id="title" type="text" placeholder="Add a note" />
+			</div>
+			<div class="ui-field-contain">
+				<textarea id="note" placeholder="The content of your note">
+				</textarea>
+			</div>
+			<div class="ui-grid-a">
+				<div class="ui-block-a">
+					<input id="btnNoThanks" type="submit" value="No Thanks" />
+				</div>
+				<div class="ui-block-b">
+					<input id="btnAddNote" type="button" value="Add Note" />
+				</div>
+			</div>
+		</form>
+
+		<ul id="notesList" data-role="listview" data-inset="true"></ul>
+	</div>
+
+	<div data-role="footer" class="footer-docs" data-position="fixed">
+		<h5>JFM 2017</h5>
+	</div>
+	</div>   
+    
+	<div data-role="page" id="location" data-title="Our Location"    class="content" data-add-back-btn="true">
+		<div data-role="header"   id="subpage" data-add-back-btn="true">
+			<h1>Google Maps</h1>
+		</div>
+<iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d8375.527583733528!2d153.3523144058953!3d-28.040500630149005!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sau!4v1513041457070" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+
+    <p></p>
+    <div><a href="https://www.drivingdirectionsandmaps.com/route-planner/">Get driving directions</a></div>
+	<div data-role="footer" class="footer-docs">
+		<h5>Address: 148 Eastlakes Street, Carrara QLD 4211</h5>
+	</div>
+	</div>
+    
+<div data-role="page" id="rss" data-title="RSS Feed"    class="content" data-add-back-btn="true">
+<div data-role="header"   id="subpage" data-add-back-btn="true">
+<h1>Website Feed</h1>
+    <p></p>
+</div>
+<div role="main" class="ui-content">
+<div class="ui-field-contain" id="wrapper">
+    <div id="feed"></div>
+</div>
+</div>
+<div data-role="footer" class="footer-docs" data-position="fixed">
+		<h5>Address: 148 Eastlakes Street, Carrara QLD 4211</h5>
+</div>
+</div>
+
+
+
+<script type="text/javascript" 
+        src="js/jquery.js">
+</script>
+<script type="text/javascript" 
+        src="js/jquery.mobile.js">
+</script>
+<script src="js/application.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+<script src="https://rawgit.com/bbClassic/YRSS/master/yrss.min.js"></script>
+    
+<!--styles-->
+
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBKk9JnGrPScBSYwrTX-xgLk_2j7bpQ-Lg&callback=initMap">
+</script> 
+<script src="js/map.js"></script>
+<script>
+$( "#toggle" ).click(function() {
+  $(".menu").toggleClass("closed");
+  $(this).toggleClass("closed");
+  $(".content").toggleClass("closed");
+  $("#wrapper").toggleClass("closed")
+});
+</script>
+<script>
+$("body").bind("swipeleft swiperight", function(e) {
+	var page = $.mobile.pageContainer.pagecontainer("getActivePage")[0];
+
+	var dir = e.type;
+	if(page.id == "home" && dir == "swiperight") {
+		$.mobile.changePage("#location");
+	}
+    	if(page.id == "location" && dir == "swipeleft") {
+		$.mobile.changePage("#home");
+	}
+	if(page.id == "location" && dir == "swiperight") {
+		$.mobile.changePage("#rss");
+	}
+    	if(page.id == "rss" && dir == "swipeleft") {
+		$.mobile.changePage("#location");
+	}
+	if(page.id == "rss" && dir == "swiperight") {
+		$.mobile.changePage("#notekeeper");
+	}
+    	if(page.id == "notekeeper" && dir == "swipeleft") {
+		$.mobile.changePage("#rss");
+	}
+});
+</script>
+<script>
+    var feed = 'http://feeds.feedburner.com/RenewedLifeFellowship';
+    $('#feed').yrss(feed, {
+        ssl: false,
+        limit: 20,
+        reverse: false,
+        cache: true,
+        maxage: 3600,
+        showerror: true,
+        errormsg: '',
+        tags: true,
+        date: true,
+        dateformat: 'spellmonth',
+        titletag: 'h4',
+        content: true,
+        image: true,
+        snippet: true,
+        snippetlimit: 120,
+        linktarget: '_blank',
+        logging: false
+    }, function () {
+        // optional callback function
+    });
+</script>
+
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA1atyhVChQRNAsfZYYDsiCOyD9wh0_Kjg&callback=initMap">
+    </script>
+</body>
+</html>
