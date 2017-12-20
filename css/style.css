@@ -1,10 +1,13 @@
 * {
-  font-family: 'Roboto', 'Arial';
+  font-family: 'Lucida Grande','Roboto', 'Arial';
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 
-
+body .ui-body-c{
+    font-family:"Lucida Grande";
+    font-size:200%;
+}
 
 html,
 body {
@@ -12,7 +15,7 @@ body {
   padding: 0;
   height: 100%;
   min-height: 100%;
-  background-color: floralwhite;
+  background-color: mediumpurple;
   background: linear-gradient(to bottom right, #35013F, ##B39BDB);
   background:  rgb(128, 51, 255, 0.4);
 }
@@ -32,10 +35,13 @@ body {
   padding-bottom: 100px;
 }
 
-.menu.closed { left: -250px; }
+.menu.closed { left: -250px;
+    opacity: 0.4;
+}
 
 #toggle {
   background-color: black;
+  opacity: 0.4;
   height: 100%;
   min-height: 100%;
   width: 50px;
@@ -61,12 +67,12 @@ body {
 }
 
 #banner {
-  width: 430px;
-  height: 100%;  
+  width: 250px;
+  height: 250px;  
 }
 .content {
   width: 100%;
-  height: 100%;
+  height: 400px;
   margin-left: 0px;
   -webkit-transition: all .4s;
   transition: all .4s;
@@ -117,7 +123,7 @@ p img {
 }
 
 .menu ul li:hover {
-  background-color: #3bb16f;
+  background-color: #4268f4;
   cursor: pointer;
 }
 
@@ -157,7 +163,7 @@ hr:before {
 }
 
 *::selection {
-  background-color: #1b5233;
+  background-color: #4268f4;
   color: floralwhite;
 }
 body {
