@@ -128,7 +128,7 @@ $(function(){
 			}
 		};
 
-		app.init();
+	//	app.init();
 
 	})(Notekeeper);
 });
